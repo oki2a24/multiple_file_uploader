@@ -2,7 +2,7 @@ version: '3.6'
 services:
   web:
     build: ./web
-    container_name: web_c
+    container_name: ign_web
     ports:
       - "80:80"
     depends_on:
@@ -14,7 +14,7 @@ services:
 
   app:
     build: ./app
-    container_name: app_c
+    container_name: ign_app
     user: www-data
     env_file:
       - .env
@@ -28,7 +28,7 @@ services:
   db:
     image: mariadb:10.2
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    container_name: db_c
+    container_name: ign_db
     env_file:
       - .env
     expose:
